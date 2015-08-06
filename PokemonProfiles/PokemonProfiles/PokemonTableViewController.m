@@ -10,177 +10,222 @@
 
 @interface PokemonTableViewController ()
 
+{
+    NSDictionary *pokemonTypes;
+    NSArray *pokemonSectionTitles;
+    
+    NSArray *pokemonIndexTitles;
+    NSArray *thumbnails;
+ 
+}
+
 @end
 
 @implementation PokemonTableViewController
 
 
+- (void)viewDidLoad
 {
-    
-    NSArray *thumbnails;
-    NSArray *pokemonTypes;
-    
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
-    pokemonTypes = [ NSArray arrayWithObjects:
-                  
-                  @"Abra",
-                  @"Aerodactyl",
-                  @"Alakazam",
-                  @"Arbok",
-                  @"Arcanine",
-                  @"Articuno",
-                  @"Beedrill",
-                  @"Bellsprout",
-                  @"Blastoise",
-                  @"Bulbasaur",
-                  @"Butterfree",
-                  @"Caterpie",
-                  @"Chansey",
-                  @"Charizard",
-                  @"Charmander",
-                  @"Charmeleon",
-                  @"Clefable",
-                  @"Clefairy",
-                  @"Cloyster",
-                  @"Cubone",
-                  @"Dewgong",
-                  @"Diglett",
-                  @"Ditto",
-                  @"Dodrio",
-                  @"Doduo",
-                  @"Dragonair",
-                  @"Dragonite",
-                  @"Dratini",
-                  @"Drowzee",
-                  @"Dugtrio",
-                  @"Eevee",
-                  @"Ekans",
-                  @"Electabuzz",
-                  @"Electrode",
-                  @"Exeggcute",
-                  @"Exeggutor",
-                  @"Farfetch'd",
-                  @"Fearow",
-                  @"Flareon",
-                  @"Gastly",
-                  @"Gengar",
-                  @"Geodude",
-                  @"Gloom",
-                  @"Golbat",
-                  @"Goldeen",
-                  @"Golduck",
-                  @"Golem",
-                  @"Graveler",
-                  @"Grimer",
-                  @"Growlithe",
-                  @"Gyarados",
-                  @"Haunter",
-                  @"Hitmonchan",
-                  @"Hitmonlee",
-                  @"Horsea",
-                  @"Hypno",
-                  @"Ivysaur",
-                  @"Jigglypuff",
-                  @"Jolteon",
-                  @"Jynx",
-                  @"Kabuto",
-                  @"Kabutops",
-                  @"Kadabra",
-                  @"Kakuna",
-                  @"Kangaskhan",
-                  @"Kingler",
-                  @"Koffing",
-                  @"Krabby",
-                  @"Lapras",
-                  @"Lickitung",
-                  @"Machamp",
-                  @"Machoke",
-                  @"Machop",
-                  @"Magikarp",
-                  @"Magmar",
-                  @"Magnemite",
-                  @"Magneton",
-                  @"Mankey",
-                  @"Marowak",
-                  @"Meowth",
-                  @"Metapod",
-                  @"Mew",
-                  @"Mewtwo",
-                  @"Moltres",
-                  @"Mr. Mime",
-                  @"Muk",
-                  @"Nidoking",
-                  @"Nidoqueen",
-                  @"Nidoran♀",
-                  @"Nidoran♂",
-                  @"Nidorina",
-                  @"Nidorino",
-                  @"Ninetales",
-                  @"Oddish",
-                  @"Omanyte",
-                  @"Omastar",
-                  @"Onix",
-                  @"Paras",
-                  @"Parasect",
-                  @"Persian",
-                  @"Pidgeot",
-                  @"Pidgeotto",
-                  @"Pidgey",
-                  @"Pikachu",
-                  @"Pinsir",
-                  @"Poliwag",
-                  @"Poliwhirl",
-                  @"Poliwrath",
-                  @"Ponyta",
-                  @"Porygon",
-                  @"Primeape",
-                  @"Psyduck",
-                  @"Raichu",
-                  @"Rapidash",
-                  @"Raticate",
-                  @"Rattata",
-                  @"Rhydon",
-                  @"Rhyhorn",
-                  @"Sandshrew",
-                  @"Sandslash",
-                  @"Scyther",
-                  @"Seadra",
-                  @"Seaking",
-                  @"Seel",
-                  @"Shellder",
-                  @"Slowbro",
-                  @"Slowpoke",
-                  @"Snorlax",
-                  @"Spearow",
-                  @"Squirtle",
-                  @"Starmie",
-                  @"Staryu",
-                  @"Tangela",
-                  @"Tauros",
-                  @"Tentacool",
-                  @"Tentacruel",
-                  @"Vaporeon",
-                  @"Venomoth",
-                  @"Venonat",
-                  @"Venusaur",
-                  @"Victreebel",
-                  @"Vileplume",
-                  @"Voltorb",
-                  @"Vulpix",
-                  @"Wartortle",
-                  @"Weedle",
-                  @"Weepinbell",
-                  @"Weezing",
-                  @"Wigglytuff",
-                  @"Zapdos",
-                  @"Zubat",
-                  nil];
+    
+        pokemonTypes =
+    
+    @{@"A": @[
+                    @"Abra",
+                    @"Aerodactyl",
+                    @"Alakazam",
+                    @"Arbok",
+                    @"Arcanine",
+                    @"Articuno"],
+        @"B" : @[
+                @"Beedrill",
+                @"Bellsprout",
+                @"Blastoise",
+                @"Bulbasaur",
+                @"Butterfree"],
+        
+        @"C" : @[
+                    @"Caterpie",
+                    @"Chansey",
+                    @"Charizard",
+                    @"Charmander",
+                    @"Charmeleon",
+                    @"Clefable",
+                    @"Clefairy",
+                    @"Cloyster",
+                    @"Cubone"],
+        @"D" : @[
+                    @"Dewgong",
+                    @"Diglett",
+                    @"Ditto",
+                    @"Dodrio",
+                    @"Doduo",
+                    @"Dragonair",
+                    @"Dragonite",
+                    @"Dratini",
+                    @"Drowzee",
+                    @"Dugtrio"],
+        @"E" : @[
+                    @"Eevee",
+                    @"Ekans",
+                    @"Electabuzz",
+                    @"Electrode",
+                    @"Exeggcute",
+                    @"Exeggutor"],
+        @"F" : @[
+                    @"Farfetch'd",
+                    @"Fearow",
+                    @"Flareon"],
+        @"G" : @[
+                    @"Gastly",
+                    @"Gengar",
+                    @"Geodude",
+                    @"Gloom",
+                    @"Golbat",
+                    @"Goldeen",
+                    @"Golduck",
+                    @"Golem",
+                    @"Graveler",
+                    @"Grimer",
+                    @"Growlithe",
+                    @"Gyarados"],
+        
+        @"H" : @[
+                    @"Haunter",
+                    @"Hitmonchan",
+                    @"Hitmonlee",
+                    @"Horsea",
+                    @"Hypno"],
+        
+        
+        @"I" : @[
+                    @"Ivysaur"],
+        
+        @"J" : @[
+                    @"Jigglypuff",
+                    @"Jolteon",
+                    @"Jynx"],
+        
+        @"K" : @[
+                    @"Kabuto",
+                    @"Kabutops",
+                    @"Kadabra",
+                    @"Kakuna",
+                    @"Kangaskhan",
+                    @"Kingler",
+                    @"Koffing",
+                    @"Krabby"],
+        
+        @"L" : @[
+                    @"Lapras",
+                    @"Lickitung"],
+        
+        @"M" : @[
+                    @"Machamp",
+                    @"Machoke",
+                    @"Machop",
+                    @"Magikarp",
+                    @"Magmar",
+                    @"Magnemite",
+                    @"Magneton",
+                    @"Mankey",
+                    @"Marowak",
+                    @"Meowth",
+                    @"Metapod",
+                    @"Mew",
+                    @"Mewtwo",
+                    @"Moltres",
+                    @"Mr. Mime",
+                    @"Muk"],
+        
+        @"N" : @[
+                    @"Nidoking",
+                    @"Nidoqueen",
+                    @"Nidoran♀",
+                    @"Nidoran♂",
+                    @"Nidorina",
+                    @"Nidorino",
+                    @"Ninetales"],
+        
+        @"O" : @[
+                    @"Oddish",
+                    @"Omanyte",
+                    @"Omastar",
+                    @"Onix"],
+        
+        
+        
+        
+        @"P" : @[
+                    @"Paras",
+                    @"Parasect",
+                    @"Persian",
+                    @"Pidgeot",
+                    @"Pidgeotto",
+                    @"Pidgey",
+                    @"Pikachu",
+                    @"Pinsir",
+                    @"Poliwag",
+                    @"Poliwhirl",
+                    @"Poliwrath",
+                    @"Ponyta",
+                    @"Porygon",
+                    @"Primeape",
+                    @"Psyduck"],
+        
+        
+        @"R" : @[
+                    @"Raichu",
+                    @"Rapidash",
+                    @"Raticate",
+                    @"Rattata",
+                    @"Rhydon",
+                    @"Rhyhorn"],
+        
+        @"S" : @[
+                    @"Sandshrew",
+                    @"Sandslash",
+                    @"Scyther",
+                    @"Seadra",
+                    @"Seaking",
+                    @"Seel",
+                    @"Shellder",
+                    @"Slowbro",
+                    @"Slowpoke",
+                    @"Snorlax",
+                    @"Spearow",
+                    @"Squirtle",
+                    @"Starmie",
+                    @"Staryu"],
+        
+        @"T" : @[
+                    @"Tangela",
+                    @"Tauros",
+                    @"Tentacool",
+                    @"Tentacruel"],
+        
+        @"V" : @[
+                    @"Vaporeon",
+                    @"Venomoth",
+                    @"Venonat",
+                    @"Venusaur",
+                    @"Victreebel",
+                    @"Vileplume",
+                    @"Voltorb",
+                    @"Vulpix",
+                    @"Wartortle",
+                    @"Weedle",
+                    @"Weepinbell",
+                    @"Weezing",
+                    @"Wigglytuff",
+                    @"Zapdos",
+                    @"Zubat"]};
     
     
-
+    pokemonSectionTitles = [[pokemonTypes allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+ pokemonIndexTitles =
+  @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z"];
 
 
 thumbnails  = [NSArray arrayWithObjects:
@@ -339,29 +384,73 @@ thumbnails  = [NSArray arrayWithObjects:
               @"zubat.png",
               nil];
 
-
+    
+    
 }
+-(NSInteger ) numberOfSectionsInTableView:(UITableView *)tableView
+  {
+      return [pokemonSectionTitles count];
+  }
+              
 
-
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [pokemonTypes count];
-}
-
+  -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+  {
+      return [pokemonSectionTitles objectAtIndex:section];
+      
+  }
+  
+  
+  -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+  {
+      NSString *sectionTitle = [pokemonSectionTitles objectAtIndex:section];
+      NSArray *sectionPokemonTypes = [pokemonTypes objectForKey:sectionTitle];
+      
+      return [sectionPokemonTypes count];
+      
+  }
+  
+  
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *pokemonTableIdentifier = @"pokemonTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pokemonTableIdentifier];
+    {
+   //static NSString *pokemonTableIdentifier = @"pokemonTableCell";
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+   
+    NSString *sectionTitle = [pokemonSectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionPokemonTypes = [pokemonTypes objectForKey:sectionTitle];
+    NSString *pokemon = [sectionPokemonTypes objectAtIndex:indexPath.row];
+  
+    cell.textLabel.text = pokemon;
+    cell.imageView.image = [UIImage imageNamed:[self getImageFilename:animal]];
+    /*
     if (cell ==nil ) {
         cell    = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pokemonTableIdentifier];
-        
+     
     }
     cell.textLabel.text = [pokemonTypes objectAtIndex:indexPath.row];
     cell.imageView.image = [UIImage imageNamed: [thumbnails objectAtIndex:indexPath.row]];
+     */
     return cell;
 }
+      
+      
+     
+-(NSArray *)sectionIndexTitlesForTableView:(UITableview *)tableView
+  {
+      return pokemonIndexTitles;
+  }
+  
+  
+-(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+
+  {
+      return [pokemonSectionTitles indexOfObject:title];
+  }
+  
+  
+      
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -379,3 +468,4 @@ thumbnails  = [NSArray arrayWithObjects:
 */
 
 @end
+  
