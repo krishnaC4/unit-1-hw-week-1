@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PokemonTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PokemonTableViewController : UIViewController //<UITableViewDelegate, UITableViewDataSource>
 
 @end
